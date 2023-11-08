@@ -1,16 +1,17 @@
 class Vector2D:
     def __init__(self, x, y):
-        self.x = x
-        self.y = y
+        self._x = x
+        self._y = y
 
     def getComponents(self):
-        return [self.x, self.y]
+        return [self._x, self._y]
 
     def abs(self):
-        return (self.x ** 2 + self.y ** 2) ** 0.5
+        return (self._x ** 2 + self._y ** 2) ** 0.5
 
     def cdot(self, param):
         if isinstance(param, Vector2D):
-            return self.x * param.x + self.y * param.y
+            param_comp = param.getComponents()
+            return self._x * param_comp[0] + self._y * param_comp[1]
         else:
             raise ValueError("Parameter must be an instance of Vector2D")

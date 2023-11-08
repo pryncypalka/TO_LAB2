@@ -1,18 +1,20 @@
-from math import cos, sin, sqrt, atan2
+from math import atan2
 
 class Polar2DAdapter:
     def __init__(self, srcVector):
-        self.srcVector = srcVector
+        self._srcVector = srcVector
 
     def abs(self):
-        return self.srcVector.abs()
+        return self._srcVector.abs()
 
     def cdot(self, param):
-        return self.srcVector.cdot(param)
+        return self._srcVector.cdot(param)
 
     def getComponents(self):
-        return self.srcVector.getComponents()
+        return self._srcVector.getComponents()
 
     def getAngle(self):
-        x, y = self.srcVector.getComponents()
-        return atan2(y, x)  # Obliczanie kąta między osią OX a wektorem
+        comp = self._srcVector.getComponents()
+        x = comp[0]
+        y = comp[1]
+        return atan2(y, x)  # atan2(y, x) zwraca kąt w radianach
