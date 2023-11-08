@@ -11,7 +11,7 @@ class Vector2D:
 
     def cdot(self, param):
         if isinstance(param, Vector2D):
-            param_comp = param.getComponents()
-            return self._x * param_comp[0] + self._y * param_comp[1]
+            p_x, p_y = param.getComponents()
+            return self._x * p_x + self._y * p_y
         else:
             raise ValueError("Parameter must be an instance of Vector2D")

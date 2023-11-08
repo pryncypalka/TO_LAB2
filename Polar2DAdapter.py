@@ -14,7 +14,5 @@ class Polar2DAdapter:
         return self._srcVector.getComponents()
 
     def getAngle(self):
-        comp = self._srcVector.getComponents()
-        x = comp[0]
-        y = comp[1]
+        x, y = self._srcVector.getComponents()
         return atan2(y, x)  # atan2(y, x) zwraca kąt w radianach
