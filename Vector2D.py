@@ -1,5 +1,6 @@
 from IVector import IVector
-class Vector2D:
+
+class Vector2D(IVector):
     def __init__(self, x, y):
         self._x = x
         self._y = y

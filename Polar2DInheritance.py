@@ -1,5 +1,5 @@
 from math import atan2
-import Vector2D
+from Vector2D import Vector2D
 class Polar2DInheritance(Vector2D):
     def __init__(self, x, y):
         super().__init__(x, y)

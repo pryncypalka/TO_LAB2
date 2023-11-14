@@ -1,5 +1,5 @@
+from IVector import IVector
 from Vector2D import Vector2D
-
 
 class Vector3DDecorator(Vector2D):
     def __init__(self, x, y, z=0):

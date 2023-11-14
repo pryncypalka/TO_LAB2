@@ -1,9 +1,9 @@
 from math import sqrt
-import Vector2D
+from Vector2D import Vector2D
 
 
 class Vector3DInheritance(Vector2D):
-    def __init__(self, x, y, z):
+    def __init__(self, x, y, z=0):
         super().__init__(x, y)
         self._z = z
 

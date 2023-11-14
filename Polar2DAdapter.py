@@ -1,14 +1,20 @@
 from math import atan2
-import IVector, IPolar2D
+from IVector import IVector
+from IPolar2D import IPolar2D
+from Vector2D import Vector2D
+
 class Polar2DAdapter(IPolar2D, IVector):
-    def __init__(self, srcVector):
-        self._srcVector = srcVector
+    def __init__(self, Vector2D):
+        self._srcVector = Vector2D
 
     def abs(self):
         return self._srcVector.abs()
 
     def cdot(self, param):
-        return self._srcVector.cdot(param)
+        if isinstance(param, Vector2D):
+            return self._srcVector.cdot(param)
+        else:
+            raise ValueError("Parameter must be an instance of IVector")
 
     def getComponents(self):
         return self._srcVector.getComponents()
