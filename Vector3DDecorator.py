@@ -1,19 +1,20 @@
-from math import sqrt
 from Vector2D import Vector2D
 
-class Vector3DDecorator:
-    def __init__(self, srcVector, z):
-        self.srcVector = srcVector
-        self.z = z
+
+class Vector3DDecorator(Vector2D):
+    def __init__(self, x, y, z=0):
+        super().__init__(x, y)
+        self._srcVector = Vector2D(x, y)
+        self._z = z
 
     def abs(self):
-        return sqrt(self.srcVector.abs() ** 2 + self.z ** 2)
+        return (self._srcVector.abs() ** 2 + self._z ** 2) ** 0.5
 
     def cdot(self, param):
-        return self.srcVector.cdot(param)
+        return self._srcVector.cdot(param)
 
     def getComponents(self):
-        return self.srcVector.getComponents() + [self.z]
+        return self._srcVector.getComponents() + [self._z]
 
     def cross(self, param):
         x1, y1, z1 = self.getComponents()

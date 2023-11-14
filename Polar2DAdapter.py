@@ -1,6 +1,6 @@
 from math import atan2
-
-class Polar2DAdapter:
+import IVector, IPolar2D
+class Polar2DAdapter(IPolar2D, IVector):
     def __init__(self, srcVector):
         self._srcVector = srcVector
 
